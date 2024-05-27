@@ -9,13 +9,13 @@ namespace Main.Scripts.Game_Field
 {
     public class Grid : MonoBehaviour
     {
-        [SerializeField] private GridItem[,] _gridItems;
+        [SerializeField] private GridCell[,] _gridItems;
         [SerializeField] private GridSize _size;
         private HashSet<BaseBlock> _blocksToDestroy = new HashSet<BaseBlock>();
         private DefaultStateMachine<BaseGridState> _stateMachine;
         public float blockMoveTime;
 
-        public void Setup(GridItem[,] items, GridSize size)
+        public void Setup(GridCell[,] items, GridSize size)
         {
             _size = size;
             _gridItems = items;
@@ -46,7 +46,7 @@ namespace Main.Scripts.Game_Field
             _stateMachine.SwitchState<GridNormalizationState>();
         }
         
-        private void MoveBlock(GridItem from, GridItem to, float time)
+        private void MoveBlock(GridCell from, GridCell to, float time)
         {
             var mainBlock = from.GetBlock();
             

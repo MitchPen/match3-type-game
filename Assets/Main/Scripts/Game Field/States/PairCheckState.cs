@@ -42,9 +42,9 @@ namespace Main.Scripts.Game_Field.States
             }
         }
 
-        private BaseBlock[] CheckNearbyBlocks(GridItem item)
+        private BaseBlock[] CheckNearbyBlocks(GridCell cell)
         {
-            var pos = item.GetCoordinates();
+            var pos = cell.GetCoordinates();
             var nearbyPositions = new (int row, int col)[]
             {
                 (pos.Row, pos.Column - 1),
@@ -56,7 +56,7 @@ namespace Main.Scripts.Game_Field.States
             foreach (var nearbyPosition in nearbyPositions)
             {
                 var result = CheckBlockOnPosition(nearbyPosition.row, nearbyPosition.col);
-                if (result != null && result.Type == item.CurrentBlock.Type)
+                if (result != null && result.Type == cell.CurrentBlock.Type)
                     pairs.Add(result);
             }
 

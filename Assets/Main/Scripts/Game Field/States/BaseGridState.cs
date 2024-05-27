@@ -14,10 +14,10 @@ namespace Main.Scripts.Game_Field.States
     public class GridStateData
     {
         public IStateSwitcher<BaseGridState> StateSwitcher;
-        public GridItem[,] GridItems;
+        public GridCell[,] GridItems;
         public GridSize Size;
         public HashSet<BaseBlock> BlocksToDestroy = new HashSet<BaseBlock>();
         public float BlockMoveTime;
-        public Action<GridItem, GridItem, float> MoveBlock;
+        public Action<GridCell, GridCell, float> MoveBlock;
     }
 }

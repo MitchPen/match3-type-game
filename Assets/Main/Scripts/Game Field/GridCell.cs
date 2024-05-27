@@ -6,16 +6,16 @@ using UnityEngine.EventSystems;
 
 namespace Main.Scripts.Game_Field
 {
-    public class GridItem : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public class GridCell : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        private GridItemCoordinates _coordinates;
+        private GridCellCoordinates _coordinates;
         private BaseBlock _currentBlock;
         public bool ContainBlock => _currentBlock != null;
         public BaseBlock CurrentBlock => _currentBlock;
 
-        public GridItemCoordinates GetCoordinates() => _coordinates;
+        public GridCellCoordinates GetCoordinates() => _coordinates;
 
-        public void Setup(GridItemCoordinates coordinates)
+        public void Setup(GridCellCoordinates coordinates)
             => _coordinates = coordinates;
 
         [Button]
@@ -46,7 +46,7 @@ namespace Main.Scripts.Game_Field
         }
     }
 
-    public struct GridItemCoordinates
+    public struct GridCellCoordinates
     {
         public int Row;
         public int Column;
